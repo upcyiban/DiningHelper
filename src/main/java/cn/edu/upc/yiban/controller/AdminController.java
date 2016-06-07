@@ -22,16 +22,16 @@ public class AdminController {
         if (session.getAttribute("user") == null) {
             return "login";
         } else {
-            return "admin";
+            return "Admin";
         }
     }
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String loginAdmin(String username,String password){
         if(Objects.equals(username, setting.adminusername) && Objects.equals(password, setting.adminpassword)){
             session.setAttribute("user","admin");
-            return "redirect:admin";
+            return "Admin";
         }
         else
-            return "redirect:login";
+            return "login";
     }
 }
